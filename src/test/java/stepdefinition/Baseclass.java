@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 import pageobject.Invalidvaliddata;
 import pageobject.Signpom;
+import pageobject.Validuserwithemptypass;
 
 public class Baseclass {
 
@@ -14,6 +15,7 @@ public class Baseclass {
 	public Signpom p;
 	public Invalidvaliddata i;
 	public Properties configproper;
+	public Validuserwithemptypass n;
 	
 	public String Randome()
 	{

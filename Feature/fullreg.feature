@@ -28,3 +28,14 @@ Then Proper error must be displayed(ie Invalid username) and prompt to enter log
  
  	| username | password |
  	|	Naresh3030@gmail.com | Naresh9959  |
+ 	
+ 	@validname
+ Scenario:
+ Given Open the browser
+ And Enter the URL "http://practice.automationtesting.in/"
+ Then Click on My Account Menu
+ And Enter valid "Naresh9959@gmail.com" in username textbox
+ Then Click on login button.
+ Then Proper error must be displayed(ie Invalid password) and prompt to enter login again
+ 	
+ 	

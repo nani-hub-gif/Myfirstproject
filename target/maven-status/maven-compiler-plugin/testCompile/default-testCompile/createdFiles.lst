@@ -1,4 +1,5 @@
 pageobject\Signpom.class
+pageobject\Validuserwithemptypass.class
 testrunner\signup.class
 pageobject\Invalidvaliddata.class
 stepdefinition\sign.class

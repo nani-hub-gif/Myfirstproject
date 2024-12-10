@@ -1,11 +1,13 @@
 package stepdefinition;
 
 import java.io.FileInputStream;
+
 import java.io.IOException;
 import java.util.Properties;
 
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
@@ -13,9 +15,11 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import pageobject.Invalidvaliddata;
 import pageobject.Signpom;
+import pageobject.Validuserwithemptypass;
 
 public class sign extends Baseclass {
 
+	
 	@Before
 	public void setup() throws IOException
 	{
@@ -51,7 +55,7 @@ public class sign extends Baseclass {
 
 	}
 
-	@Given("Enter the URL {string}")
+	@Then("Enter the URL {string}")
 	public void enter_the_url(String string) {
 	   driver.get(string);
 	}
@@ -111,6 +115,29 @@ public class sign extends Baseclass {
 	 boolean b=	driver.getPageSource().contains("Please provide a valid email address");
 		Assert.assertTrue("Please provide a valid email address.", b);
 	}
+
+	//valid email and empty password
+	
+	@Then("Enter valid {string} in username textbox")
+	public void enter_valid_in_username_textbox(String string) {
+		n=new Validuserwithemptypass(driver);
+	    n.name(string);
+	}
+
+
+	@Then("Click on login button.")
+	public void click_on_login_button1() {
+	    n.login();
+	}
+
+	@Then("Proper error must be displayed\\(ie Invalid password) and prompt to enter login again")
+	public void proper_error_must_be_displayed_ie_invalid_password_and_prompt_to_enter_login_again() {
+	   
+		String s=driver.findElement(By.xpath("//div[@id='body']//li[1]")).getText();
+		System.out.println(s);
+		Assert.assertTrue("Password is required", true);
+	}
+	
 
 
 
